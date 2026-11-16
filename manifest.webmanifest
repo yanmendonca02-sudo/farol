@@ -1,0 +1,26 @@
+{
+  "name": "Farol — Sobrevivência Offline",
+  "short_name": "Farol",
+  "description": "Mapa offline, primeiros socorros, água, comida, abrigo e comunicação local. Funciona sem internet.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "farol-offline",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#060907",
+  "theme_color": "#060907",
+  "categories": ["utilities", "health", "navigation", "education"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Mapa offline", "short_name": "Mapa", "url": "./index.html#/mapa" },
+    { "name": "Primeiros socorros", "short_name": "Socorro", "url": "./index.html#/socorro" },
+    { "name": "Emergência", "short_name": "Emergência", "url": "./index.html#/emergencia" }
+  ]
+}

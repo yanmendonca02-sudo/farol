@@ -1,0 +1,55 @@
+FAROL — PACOTE PRONTO PARA A VERCEL
+===================================
+
+Esta pasta contém apenas o que o site precisa em produção:
+  index.html, css/, js/, vendor/, icons/, manifest.webmanifest, sw.js
+e o arquivo vercel.json (cache e tipo do manifest).
+
+Não há build, não há dependências e não há backend. É um site estático
+offline-first: o service worker guarda tudo no primeiro acesso.
+
+Ficaram de fora: tools/ (scripts de desenvolvimento), README.md,
+e data/tiles/ (tiles opcionais que você pode baixar pelo próprio app).
+
+
+COMO PUBLICAR
+-------------
+
+Opção A — painel da Vercel (mais simples)
+1. Acesse https://vercel.com/new
+2. Arraste esta pasta (ou o arquivo farol-vercel.zip) para a área de upload.
+3. Deploy. A Vercel detecta site estático automaticamente.
+
+Opção B — GitHub
+1. Suba o conteúdo desta pasta para um repositório.
+2. Em https://vercel.com/new, importe o repositório.
+3. Framework Preset: Other
+   Build Command: (deixe vazio)
+   Output Directory: . (a raiz do repositório)
+4. Deploy.
+
+Opção C — CLI
+  npm i -g vercel
+  cd farol-vercel
+  vercel --prod
+
+Se você importar o repositório inteiro (com a pasta farol-vercel dentro),
+configure Root Directory = farol-vercel nas configurações do projeto.
+
+
+DEPOIS DO DEPLOY
+----------------
+1. Abra o endereço https://SEU-PROJETO.vercel.app uma vez, online,
+   e espere a tela inicial carregar (o service worker precisa de HTTPS,
+   que a Vercel já fornece).
+2. No celular, use "Adicionar à tela de início".
+3. Para o mapa: Mapa > escolha a região e o zoom > Baixar mapa.
+   Os tiles ficam no IndexedDB do aparelho.
+4. Teste em modo avião: tudo deve continuar abrindo.
+5. O PIN e a ficha médica são locais; não há sincronização entre aparelhos.
+
+ATUALIZAÇÕES
+------------
+Ao publicar uma versão nova, troque a constante VERSION em sw.js
+(ex.: farol-v12 -> farol-v13) antes do deploy. Assim o service worker
+descarta o cache antigo e o app atualiza na próxima abertura.

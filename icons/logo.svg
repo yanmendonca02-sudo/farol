@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-label="Farol — sobrevivência offline">
+  <rect width="220" height="64" rx="16" fill="#060907"/>
+  <g fill="none" stroke="#D8FF57" stroke-linecap="round">
+    <circle cx="32" cy="32" r="15" stroke-width="3.2"/>
+    <path d="M32 35v8" stroke-width="3"/>
+    <path d="M40 17a22 22 0 0 1 0 30" stroke-width="1.9" opacity=".55"/>
+    <path d="M23 47h18" stroke="#F3F1E6" stroke-width="1.8" opacity=".45"/>
+  </g>
+  <circle cx="32" cy="29" r="4" fill="#F3F1E6"/>
+  <text x="62" y="31" font-family="Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="6" fill="#F3F1E6">FAROL</text>
+  <text x="63" y="46" font-family="Helvetica Neue, Arial, sans-serif" font-size="8.5" letter-spacing="2.6" fill="#95A397">SOBREVIVÊNCIA OFFLINE</text>
+</svg>

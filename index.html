@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Farol — Sobrevivência Offline</title>
+<meta name="description" content="Mapa offline, primeiros socorros, água, comida, abrigo e comunicação local. Funciona sem internet.">
+<meta name="theme-color" content="#060907">
+<meta name="color-scheme" content="dark light">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Farol">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Ir para o conteúdo</a>
+<p class="offline-flag" id="offline-flag" role="status" aria-live="polite" hidden>Sem internet — modo offline ativo</p>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#/" aria-label="Farol, início">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 26.5V14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="16" cy="10.5" r="3.6" fill="currentColor"/>
+        <path d="M21.5 5.6a11 11 0 0 1 0 15.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+        <path d="M26.2 3a16.5 16.5 0 0 1 0 20.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".4"/>
+        <path d="M6 26.5h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"/>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <strong>Farol</strong>
+      <small>sobrevivência offline</small>
+    </span>
+  </a>
+  <div class="topbar-actions" role="group" aria-label="Preferências rápidas">
+    <button class="icon-btn" id="btn-font" type="button" aria-label="Aumentar tamanho do texto" title="Tamanho do texto">A⁺</button>
+    <button class="icon-btn" id="btn-theme" type="button" aria-label="Alternar tema claro e escuro" title="Tema">◐</button>
+    <button class="icon-btn" id="btn-lock" type="button" aria-label="Bloquear o aplicativo" title="Bloquear">⌾</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="view-loading" aria-hidden="true">Carregando…</div>
+</main>
+
+<nav class="tabbar" aria-label="Navegação principal">
+  <a class="tab" href="#/" data-tab="home"><span class="tab-ico" aria-hidden="true">⌂</span><span>Início</span></a>
+  <a class="tab" href="#/mapa" data-tab="map"><span class="tab-ico" aria-hidden="true">◎</span><span>Mapa</span></a>
+  <a class="tab tab-sos" href="#/emergencia" data-tab="aid"><span class="tab-ico" aria-hidden="true">✚</span><span>SOS</span></a>
+  <a class="tab" href="#/ferramentas" data-tab="tools"><span class="tab-ico" aria-hidden="true">⚒</span><span>Kit</span></a>
+  <a class="tab" href="#/mais" data-tab="more"><span class="tab-ico" aria-hidden="true">≡</span><span>Mais</span></a>
+</nav>
+
+<div id="toasts" class="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+<div id="modal-root"></div>
+
+<div id="lock-screen" class="lock-screen" hidden>
+  <form class="lock-card" id="lock-form">
+    <h1>Farol bloqueado</h1>
+    <p class="muted">Digite seu PIN de 4 a 8 números.</p>
+    <label class="field">
+      <span>PIN</span>
+      <input id="lock-pin" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="8" required>
+    </label>
+    <p class="error" id="lock-error" role="alert" hidden>PIN incorreto. Tente de novo.</p>
+    <button class="btn btn-primary btn-lg" type="submit">Desbloquear</button>
+    <p class="muted small">Sem conexão com a internet. Tudo fica neste aparelho.</p>
+  </form>
+</div>
+
+<noscript>
+  <div class="noscript">Este aplicativo precisa de JavaScript. Ative o JavaScript no navegador e abra de novo.</div>
+</noscript>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="vendor/qr/qrcode.js"></script>
+<script src="vendor/qr/jsQR.js"></script>
+<script src="vendor/ggwave.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
